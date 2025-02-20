@@ -78,6 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('response').textContent = 'Message envoyé avec succès !';
         document.getElementById('response').className = 'text-green-500 border border-green-500 p-2 rounded'; // Classes Tailwind pour le succès
         form.reset(); // Réinitialiser le formulaire
+
+        // Masquer le message après 3 secondes
+  setTimeout(() => {
+    document.getElementById('response').textContent = ''; // Effacer le texte
+    document.getElementById('response').className = ''; // Supprimer les classes
+  }, 2000); // 3000 millisecondes = 3 secondes
+
       } else {
         document.getElementById('response').textContent = 'Erreur lors de l\'envoi du message : ' + result.error;
         document.getElementById('response').className = 'text-red-500 border border-red-500 p-2 rounded'; // Classes Tailwind pour l'erreur
